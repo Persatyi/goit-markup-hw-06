@@ -32,6 +32,10 @@ img {
   display: block;
 }
 
+textarea {
+  resize: none;
+}
+
 .container {
   width: 1200px;
   margin: 0 auto;
@@ -217,7 +221,7 @@ img {
 /*--------- Button ---------*/
 
 .button {
- margin: 0 auto;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -291,6 +295,7 @@ img {
 
   min-width: 530px;
   min-height: 580px;
+  padding: 40px;
 
   background: #ffffff;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
@@ -313,10 +318,84 @@ img {
   width: 30px;
   height: 30px;
 
+  fill: #000000;
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: var(--primary-white-color);
   cursor: pointer;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+.close-modal-btn:hover,
+.close-modal-btn:focus {
+  fill: var(--accent-color);
+}
+
+/* Modal form */
+
+.modal-form-title {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
+  text-align: center;
+  color: var(--title-text-color);
+
+  margin-bottom: 12px;
+}
+
+.modal-form {
+  /* outline: 1px solid tomato; */
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.modal-form-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.modal-form-label {
+  margin-bottom: 4px;
+}
+
+.modal-form-input {
+  margin: 0;
+  padding: 12px 15px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+}
+
+.modal-textarea {
+  padding: 12px 16px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+}
+
+.modal-textarea::placeholder{
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.01em;
+  color: rgba(117, 117, 117, 0.5);
+}
+
+.submit-checkbox {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 1.71;
+  margin-bottom: 30px;
+}
+
+.agreement-link {
+  color: var(--accent-color);
+}
+
+.modal-form-btn:hover,
+.modal-form-button:focus {
+  background-color: #188ce8;
+  color: var(--primary-white-color);
 }
 
 /*--------- Advantagies ---------*/
@@ -624,7 +703,7 @@ img {
   margin-right: 12px;
 }
 
-.form-input {
+.subscribe-input {
   width: 358px;
   height: 50px;
   padding: 15px 16px;
