@@ -425,24 +425,45 @@
                 <ul class="modal-form">
                     <li class="modal-form-field">
                         <label class="modal-form-label" for="name">Имя</label>
-                <input class="modal-form-input" type="text" name="name" id="name">
+                        <div class="input-wrap">
+                            <input class="modal-form-input" type="text" name="name" id="name">
+                            <svg class="modal-icon" width="12" height="12">
+                                <use href="./images/sprite/icons.svg#icon-name"></use>
+                            </svg>
+                        </div>
                     </li>
                     <li class="modal-form-field">
                         <label class="modal-form-label" for="tel">Телефон</label>
-                <input class="modal-form-input" type="tel" name="tel" id="tel">
+                        <div class="input-wrap">
+                            <input class="modal-form-input" type="tel" name="tel" id="tel">
+                            <svg class="modal-icon" width="13" height="13">
+                                <use href="./images/sprite/icons.svg#icon-tel"></use>
+                            </svg>
+                        </div>
                     </li>
                     <li class="modal-form-field">
                         <label class="modal-form-label" for="mail">Почта</label>
-                <input class="modal-form-input" type="email" name="mail" id="mail">
-                    </li>
-                    <li class="modal-form-field">
-                        <label class="modal-form-label" for="comment">Комментарий</label>
-                <textarea class="modal-textarea" name="comment" id="comment" rows="6" placeholder="Введите текст"></textarea>
+                        <div class="input-wrap">
+                            <input class="modal-form-input" type="email" name="mail" id="mail">
+                            <svg class="modal-icon" width="15" height="12">
+                                <use href="./images/sprite/icons.svg#icon-email"></use>
+                            </svg>
+                        </div>
                     </li>
                 </ul>
-                <input type="checkbox" name="agreement" value="submit" id="submit" checked>
-                <label class="submit-checkbox" for="submit">Соглашаюсь с рассылкой и принимаю 
-                    <a class="agreement-link" href="">Условия договора</a>
+                <div class="modal-form-field">
+                    <label class="modal-form-label" for="comment">Комментарий</label>
+            <textarea class="modal-textarea" name="comment" id="comment"  placeholder="Введите текст"></textarea>
+                </div>
+                <label class="submit-checkbox" for="submit">
+                    <input class="input-checkbox visually-hidden" type="checkbox" name="agreement" value="submit" id="submit" checked>
+                    <span class="agreement-checkbox">
+                        <svg class="checkbox-label" width="11" height="8">
+                            <use href="./images/sprite/icons.svg#icon-checkbox"></use>
+                        </svg>
+                    </span>
+                    Соглашаюсь с рассылкой и принимаю 
+                    <a class="agreement-link" href=""> Условия договора</a>
                 </label>
                 <button class="button modal-form-btn" type="submit">Отправить</button>
             </form>

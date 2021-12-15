@@ -11,6 +11,7 @@
   --accent-color: #2196f3;
   --primary-white-color: #ffffff;
   --secondary-bg-color: #f5f4fa;
+  --cubic-bz: 0.4, 0, 0.2, 1;
 }
 
 body {
@@ -34,6 +35,17 @@ img {
 
 textarea {
   resize: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0)
 }
 
 .container {
@@ -106,7 +118,7 @@ textarea {
 
   transition-property: color;
   transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(var(--cubic-bz));
 }
 
 .site-nav .link:hover,
@@ -171,7 +183,7 @@ textarea {
   line-height: 1.14;
   letter-spacing: 0.02em;
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(var(--cubic-bz));
 }
 
 .contacts .link:hover,
@@ -247,9 +259,9 @@ textarea {
   color: var(--primary-white-color);
   border: 0px solid transparent;
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(var(--cubic-bz)),
+    background-color 250ms cubic-bezier(var(--cubic-bz)),
+    box-shadow 250ms cubic-bezier(var(--cubic-bz));
 }
 
 .button:hover,
@@ -274,8 +286,8 @@ textarea {
   background-color: rgba(0, 0, 0, 0.2);
   opacity: 1;
   transform: translateX(-50%);
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 250ms cubic-bezier(var(--cubic-bz)),
+    visibility 250ms cubic-bezier(var(--cubic-bz));
 }
 
 .backdrop.is-hidden {
@@ -303,7 +315,7 @@ textarea {
   border-radius: 4px;
 
   transform: translate(-50%, -50%) scale(1);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 250ms cubic-bezier(var(--cubic-bz));
 }
 
 .close-modal-btn {
@@ -323,9 +335,8 @@ textarea {
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: var(--primary-white-color);
   cursor: pointer;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill 250ms cubic-bezier(var(--cubic-bz));
 }
-
 
 .close-modal-btn:hover,
 .close-modal-btn:focus {
@@ -362,16 +373,48 @@ textarea {
 }
 
 .modal-form-input {
+  height: 40px;
+  width: 100%;
   margin: 0;
-  padding: 12px 15px;
+  padding: 12px 15px 12px 42px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
+  fill: var(--title-text-color);
+  outline: transparent;
+  transition: border-color 250ms cubic-bezier(var(--cubic-bz)),
+  fill 250ms cubic-bezier(var(--cubic-bz));
+}
+
+.modal-form-input:focus {
+  border-color: var(--accent-color);
+}
+
+.modal-form-input:focus + .modal-icon {
+  fill: var(--accent-color);
+}
+
+.input-wrap {
+  position: relative;
+}
+
+.modal-icon {
+  position: absolute;
+  left: 15px;
+  top: 14px;
 }
 
 .modal-textarea {
+  height: 120px;
+  width: 100%;
   padding: 12px 16px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
+  outline: transparent;
+  transition: border-color 250ms cubic-bezier(var(--cubic-bz));
+}
+
+.modal-textarea:focus {
+  border-color: var(--accent-color);
 }
 
 .modal-textarea::placeholder{
@@ -382,10 +425,31 @@ textarea {
 }
 
 .submit-checkbox {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 14px;
   line-height: 1.71;
   margin-bottom: 30px;
+}
+
+.agreement-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 16px;
+  height: 15px;
+  border: 1px solid var(--title-text-color);
+  border-radius: 2px;
+  margin-right: 7px;
+  transition: background-color 250ms cubic-bezier(var(--cubic-bz)),
+  border-color 250ms cubic-bezier(var(--cubic-bz));
+}
+
+.input-checkbox:checked + .agreement-checkbox {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
 }
 
 .agreement-link {
@@ -568,8 +632,8 @@ textarea {
   border-radius: 50%;
   fill: #afb1b8;
 
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill 250ms cubic-bezier(var(--cubic-bz)),
+    background-color 250ms cubic-bezier(var(--cubic-bz));
 }
 
 .socials-item .link-socials:hover,
@@ -607,8 +671,8 @@ textarea {
   border-radius: 4px;
   fill: #afb1b8;
 
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill 250ms cubic-bezier(var(--cubic-bz)),
+    border-color 250ms cubic-bezier(var(--cubic-bz));
 }
 
 .link-clients:hover,
@@ -666,7 +730,7 @@ textarea {
 
   color: rgba(255, 255, 255, 0.6);
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(vvar(--cubic-bz));
 }
 
 .address-wrapper {
@@ -757,8 +821,8 @@ textarea {
   border-color: transparent;
   cursor: pointer;
 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(var(--cubic-bz)),
+    color 250ms cubic-bezier(var(--cubic-bz)), box-shadow 250ms cubic-bezier(var(--cubic-bz));
 }
 
 .filters .tab:hover,
@@ -805,8 +869,8 @@ textarea {
   color: var(--primary-white-color);
 
   transform: translatey(100%);
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 250ms cubic-bezier(var(--cubic-bz)),
+    transform 250ms cubic-bezier(var(--cubic-bz));
 }
 
 .portfolio-list {
